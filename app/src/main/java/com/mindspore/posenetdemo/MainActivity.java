@@ -27,6 +27,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceView;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
@@ -295,9 +296,11 @@ public class MainActivity extends AppCompatActivity implements CameraDataDealLis
 
 //                Log.w("TAG", "run: sendData Function 2");
 
+                EditText ipconfig =(EditText) findViewById (R.id.ipconfig);
+
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://172.26.105.132:5000/")
+                        .url("http://" + ipconfig.getText() + "/")
                         .post(requestBody)
                         .build();
 
